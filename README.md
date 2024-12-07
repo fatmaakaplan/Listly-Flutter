@@ -123,8 +123,7 @@ lib/
 
 ## Ekran Görüntüleri
 
-[Uygulama ekran görüntüleri buraya eklenecek]
-
+assets/images/screenshots
   
 
 ## Projeye Katkı Sağlama
