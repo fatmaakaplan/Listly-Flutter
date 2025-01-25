@@ -12,7 +12,9 @@ class BottomMenu extends StatelessWidget {
     return Container(
       height: 70,
       decoration: BoxDecoration(
-        color: Colors.white, // Alt menünün arka plan rengi
+        color: Theme.of(context)
+            .colorScheme
+            .onPrimary, // Alt menünün arka plan rengi
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -32,39 +34,11 @@ class BottomMenu extends StatelessWidget {
             },
             icon: const Icon(
               CupertinoIcons.home,
-              color: Colors.black, // İkon rengi
+              color: Colors.deepPurpleAccent, // İkon rengi
             ),
           ),
           // Arama
-          IconButton(
-            onPressed: () {
-              context.go("/search");
-            },
-            icon: const Icon(
-              CupertinoIcons.search,
-              color: Colors.black,
-            ),
-          ),
-          // Sesli Asistan
-          IconButton(
-            onPressed: () {
-              context.go("/voice");
-            },
-            icon: const Icon(
-              Icons.mic, // Sesli asistan için mikrofon ikonu
-              color: Colors.black,
-            ),
-          ),
-          // Geçmiş
-          IconButton(
-            onPressed: () {
-              context.go("/history");
-            },
-            icon: const Icon(
-              Icons.history,
-              color: Colors.black,
-            ),
-          ),
+
           // Profil
           IconButton(
             onPressed: () {
@@ -72,7 +46,7 @@ class BottomMenu extends StatelessWidget {
             },
             icon: const Icon(
               CupertinoIcons.person,
-              color: Colors.black,
+              color: Colors.deepPurpleAccent,
             ),
           ),
         ],

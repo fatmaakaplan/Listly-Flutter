@@ -2,6 +2,7 @@ import 'package:dotlottie_loader/dotlottie_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 class LoadingScreen extends StatelessWidget {
@@ -29,12 +30,13 @@ class LoadingScreen extends StatelessWidget {
             // Yükleniyor yazısı
             //  CircularProgressIndicator(),
 
-            const Text(
-              'Listly',
-              style: TextStyle(
+            Text(
+              'LISTLY',
+              style: GoogleFonts.abel(
                 fontSize: 40,
+                fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w500,
-                color: Color.fromARGB(255, 30, 15, 199),
+                color: Colors.deepPurpleAccent,
               ),
             ),
 

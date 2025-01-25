@@ -18,8 +18,8 @@ class ThemeProvider with ChangeNotifier {
 }
 
 const colors = {
-  "primary": Color.fromARGB(255, 65, 159, 217),
-  "onPrimary": Color.fromARGB(255, 255, 255, 255),
+  "primary": Colors.deepPurpleAccent,
+  "onPrimary": Colors.deepPurpleAccent,
   "secondary": Color.fromARGB(255, 241, 241, 241),
   "onSecondary": Color.fromARGB(255, 82, 76, 100),
   "surface": Color.fromARGB(255, 255, 255, 255),

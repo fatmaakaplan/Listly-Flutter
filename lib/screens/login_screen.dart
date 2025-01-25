@@ -9,7 +9,8 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profil'),
-        backgroundColor: Colors.blueAccent, // Profil ekranı için renk
+        titleTextStyle: TextStyle(color: Colors.white),
+        backgroundColor: Colors.deepPurpleAccent, // Profil ekranı için renk
         leading: IconButton(
           icon: const Icon(Icons.home), // Sol üstte "Home" ikonu
           onPressed: () {
@@ -46,13 +47,15 @@ class LoginScreen extends StatelessWidget {
               },
               child: const Text('Giriş Yap'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.lightBlue[400], // Düğme rengi
+                backgroundColor: Colors.purple[50], // Düğme rengi
               ),
             ),
             const SizedBox(height: 16),
             TextButton(
               onPressed: () {
-                // Yeni kullanıcı kaydı sayfasına yönlendirme yapılabilir
+                // Yeni hesap oluştur sayfasına yönlendirme
+                GoRouter.of(context).go(
+                    '/profile_screen'); // 'profile_screen' yoluna yönlendirme
               },
               child: const Text('Yeni hesap oluştur'),
             ),

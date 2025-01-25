@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import '../widgets/bottom_menu.dart';
+import '../core/themes.dart';
+import '../widgets/bottom_menu.dart';
 
 class HomeScreen extends StatefulWidget {
   final void Function() onThemeChange; // Tema değiştirme fonksiyonu
@@ -24,15 +26,16 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text(
           'H O M E',
           style: TextStyle(
-            color: Color.fromRGBO(139, 21, 58, 1),
+            color: Colors.deepPurpleAccent,
           ),
         ),
-        backgroundColor: const Color.fromARGB(0, 219, 27, 184),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         elevation: 0,
         actions: [
           IconButton(
             icon: const Icon(CupertinoIcons.calendar_today),
-            color: Colors.deepPurpleAccent,
+            color: Theme.of(context).colorScheme.onPrimary,
             onPressed: () {}, // Takvim işlevi henüz tanımlanmamış
           ),
           // Tema değiştirme butonu
@@ -51,7 +54,92 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
 
-      // Görev Listesi
+      // Sol üstteki 3 çizgili menü simgesi
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                child: Icon(
+                  CupertinoIcons.person_circle,
+                  size: 50,
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                ),
+              ),
+              accountName: const Text(
+                "Hoşgeldiniz",
+              ),
+              accountEmail: null,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.secondary, // Tema rengi
+              ),
+            ),
+            // Ana Sayfa menüsü
+            ListTile(
+              leading: Icon(
+                CupertinoIcons.home,
+                color: Theme.of(context).colorScheme.primary, // Yazının rengi
+              ),
+              title: Text(
+                'Ana Sayfa',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                ),
+              ),
+              onTap: () => Navigator.pop(context),
+            ),
+            // Arama Geçmişi menüsü
+
+            // Profil menüsü
+            ListTile(
+              leading: Icon(
+                CupertinoIcons.person,
+                color: Theme.of(context).colorScheme.primary, // Yazının rengi
+              ),
+              title: Text(
+                'Profil',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                ),
+              ),
+              onTap: () => context.push("/profile"),
+            ),
+            // Ayarlar menüsü
+            ListTile(
+              leading: Icon(
+                CupertinoIcons.settings,
+                color: Theme.of(context).colorScheme.primary, // Yazının rengi
+              ),
+              title: Text(
+                'Ayarlar',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                ),
+              ),
+              onTap: () => context.push("/settings"),
+            ),
+            const Spacer(),
+            const Divider(),
+            // Çıkış Yap menüsü
+            ListTile(
+              leading: Icon(
+                Icons.logout,
+                color: Theme.of(context).colorScheme.primary, // Yazının rengi
+              ),
+              title: Text(
+                'Çıkış Yap',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                ),
+              ),
+              onTap: () => context.go("/loading"),
+            ),
+          ],
+        ),
+      ),
+
+      // Görev Listesi ve Arka Plan Rengi
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -92,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const Divider(
                         color: Colors.white,
-                        thickness: 1,
+                        thickness: 2,
                       ),
                     ],
                   );
