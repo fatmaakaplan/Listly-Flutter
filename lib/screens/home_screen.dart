@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import '../widgets/bottom_menu.dart';
 
 class HomeScreen extends StatefulWidget {
   final void Function() onThemeChange; // Tema değiştirme fonksiyonu
@@ -102,25 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
 
-      // Alt navigasyon çubuğu
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
-            label: 'Ana Sayfa',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person),
-            label: 'Profil',
-          ),
-        ],
-        onTap: (index) {
-          if (index == 1) {
-            // Profil sayfasına yönlendirme işlemi
-            GoRouter.of(context).go('/profile');
-          }
-        },
-      ),
+      // Alt menü (BottomMenu)
+      bottomNavigationBar: const BottomMenu(),
 
       // Artı Tuşu (FloatingActionButton)
       floatingActionButton: FloatingActionButton(
