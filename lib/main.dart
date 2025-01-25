@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/core/routes.dart';
+import 'package:flutter_app/screens/settings_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'screens/loading_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/login_screen.dart';
+import 'screens/settings_screen.dart';
+import 'screens/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -61,7 +65,12 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/profile',
-      builder: (context, state) => const LoginScreen(),
+      builder: (context, state) =>
+          const LoginScreen(), // Profil ekranını doğru şekilde tanımlayın
+    ),
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) => const SettingsScreen(),
     ),
   ],
 );

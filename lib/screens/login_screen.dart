@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart'; // GoRouter kullanarak yönlendirme yapacağız
+import 'package:go_router/go_router.dart';
+import 'screens/profile_screen.dart';
+// GoRouter kullanarak yönlendirme yapacağız
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -51,14 +53,18 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            TextButton(
+            // Yeni hesap oluştur butonu
+            ElevatedButton(
               onPressed: () {
-                // Yeni hesap oluştur sayfasına yönlendirme
-                GoRouter.of(context).go(
-                    '/profile_screen'); // 'profile_screen' yoluna yönlendirme
+                // Profil ekranına yönlendir
+                GoRouter.of(context)
+                    .go('/profile_screen'); // Profil ekranına yönlendirme
               },
-              child: const Text('Yeni hesap oluştur'),
-            ),
+              child: const Text('Yeni Hesap Oluştur'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple[200], // Düğme rengi
+              ),
+            )
           ],
         ),
       ),

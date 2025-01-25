@@ -25,7 +25,7 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/loading',
-      builder: (context, state) => LoadingScreen(),
+      builder: (context, state) => const LoadingScreen(),
     ),
     GoRoute(
       path: '/home',
@@ -36,7 +36,14 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/profile',
-      builder: (context, state) => const LoginScreen(),
+      builder: (context, state) =>
+          const ProfileScreen(), // Profil ekranını doğru şekilde tanımlayın
+    ),
+
+    // Settings ekranı için rota
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) => const SettingsScreen(),
     ),
   ],
 );
@@ -68,6 +75,18 @@ class _MyAppState extends State<MyApp> {
       darkTheme: ThemeData.dark(),
       routerConfig: router,
       debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Profil')),
+      body: Center(child: Text('Profil Ekranı')),
     );
   }
 }
