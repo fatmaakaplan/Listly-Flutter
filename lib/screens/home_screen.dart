@@ -6,7 +6,7 @@ import '../core/themes.dart';
 import '../widgets/bottom_menu.dart';
 
 class HomeScreen extends StatefulWidget {
-  final void Function() onThemeChange; // Tema değiştirme fonksiyonu
+  final void Function() onThemeChange;
 
   const HomeScreen({super.key, required this.onThemeChange});
 
@@ -15,9 +15,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Map<String, dynamic>> tasks = []; // Görev listesi (metin + durum)
+  final List<Map<String, dynamic>> tasks = [];
   final TextEditingController taskController = TextEditingController();
-  bool _isDarkMode = false; // Dark mode durumunu tutan değişken
+  bool _isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(CupertinoIcons.calendar_today),
             color: Theme.of(context).colorScheme.onPrimary,
-            onPressed: () {}, // Takvim işlevi henüz tanımlanmamış
+            onPressed: () {},
           ),
-          // Tema değiştirme butonu
           IconButton(
             icon: Icon(
               _isDarkMode ? CupertinoIcons.sun_max : CupertinoIcons.moon_fill,
@@ -46,15 +45,13 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.deepPurpleAccent,
             onPressed: () {
               setState(() {
-                _isDarkMode = !_isDarkMode; // Tema durumu değiştiriliyor
+                _isDarkMode = !_isDarkMode;
               });
-              widget.onThemeChange(); // Tema değiştirme fonksiyonu çağrılıyor
+              widget.onThemeChange();
             },
           ),
         ],
       ),
-
-      // Sol üstteki 3 çizgili menü simgesi
       drawer: Drawer(
         child: Column(
           children: [
@@ -72,19 +69,19 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               accountEmail: null,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary, // Tema rengi
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
-            // Ana Sayfa menüsü
+
             ListTile(
               leading: Icon(
                 CupertinoIcons.home,
-                color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                color: Theme.of(context).colorScheme.primary,
               ),
               title: Text(
                 'Ana Sayfa',
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
               onTap: () => Navigator.pop(context),
@@ -95,12 +92,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ListTile(
               leading: Icon(
                 CupertinoIcons.person,
-                color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                color: Theme.of(context).colorScheme.primary, //
               ),
               title: Text(
                 'Profil',
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
               onTap: () => context.push("/profile"),
@@ -109,12 +106,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ListTile(
               leading: Icon(
                 CupertinoIcons.settings,
-                color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                color: Theme.of(context).colorScheme.primary,
               ),
               title: Text(
                 'Ayarlar',
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
               onTap: () => context.push("/settings"),
@@ -125,12 +122,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ListTile(
               leading: Icon(
                 Icons.logout,
-                color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                color: Theme.of(context).colorScheme.primary,
               ),
               title: Text(
                 'Çıkış Yap',
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary, // Yazının rengi
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
               onTap: () => context.go("/loading"),
@@ -138,8 +135,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-
-      // Görev Listesi ve Arka Plan Rengi
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -149,7 +144,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: Column(
           children: [
-            // Görev Listesi
             Expanded(
               child: ListView.builder(
                 padding: const EdgeInsets.all(16),
@@ -190,22 +184,16 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-
-      // Alt menü (BottomMenu)
       bottomNavigationBar: const BottomMenu(),
-
-      // Artı Tuşu (FloatingActionButton)
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _showAddTaskDialog(
-              context); // Yeni görev eklemek için diyalog kutusunu aç
+          _showAddTaskDialog(context);
         },
         child: const Icon(Icons.add),
       ),
     );
   }
 
-  // Görev ekleme diyalog kutusu
   void _showAddTaskDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -220,7 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop(); // Diyalog kutusunu kapat
+              Navigator.of(context).pop();
             },
             child: const Text('İptal'),
           ),
@@ -232,8 +220,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   'completed': false,
                 });
               });
-              taskController.clear(); // TextField temizlenir
-              Navigator.of(context).pop(); // Diyalog kutusunu kapat
+              taskController.clear();
+              Navigator.of(context).pop();
             },
             child: const Text('Ekle'),
           ),

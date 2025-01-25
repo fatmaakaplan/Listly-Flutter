@@ -43,9 +43,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               trailing: Switch(
                 value: Theme.of(context).brightness == Brightness.dark,
                 onChanged: (value) {
-                  context
-                      .read<ThemeProvider>()
-                      .toggleTheme(); // Tema değiştirme
+                  // Tema değiştirme işlemi
+                  context.read<ThemeProvider>().toggleTheme();
                 },
               ),
             ),

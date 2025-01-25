@@ -26,8 +26,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Flutter App',
-      themeMode:
-          _isDarkMode ? ThemeMode.dark : ThemeMode.light, // Temayı ayarlama
+      themeMode: _isDarkMode ? ThemeMode.dark : ThemeMode.light,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       routerConfig: router,
@@ -35,17 +34,15 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  // Tema değiştirme fonksiyonu
   void toggleTheme() {
     setState(() {
-      _isDarkMode = !_isDarkMode; // Temayı değiştir
+      _isDarkMode = !_isDarkMode;
     });
   }
 }
 
-// Router yapılandırması
 final router = GoRouter(
-  initialLocation: '/', // Başlangıç yolu
+  initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',
@@ -56,7 +53,6 @@ final router = GoRouter(
       builder: (context, state) {
         return HomeScreen(
           onThemeChange: () {
-            // Tema değiştirme işlevini tetikleme
             final appState = context.findAncestorStateOfType<_MyAppState>();
             appState?.toggleTheme(); // Tema değiştir
           },
@@ -65,8 +61,7 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/profile',
-      builder: (context, state) =>
-          const LoginScreen(), // Profil ekranını doğru şekilde tanımlayın
+      builder: (context, state) => const LoginScreen(),
     ),
     GoRoute(
       path: '/settings',
