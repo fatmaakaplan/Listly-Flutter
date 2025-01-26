@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'screens/profile_screen.dart';
+
 // GoRouter kullanarak yönlendirme yapacağız
 
 class LoginScreen extends StatelessWidget {
