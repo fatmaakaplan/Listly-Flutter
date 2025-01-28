@@ -1,73 +1,109 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
-// GoRouter kullanarak yönlendirme yapacağız
-
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController epostaYonetici = TextEditingController();
+  TextEditingController sifreYonetici = TextEditingController();
+
+  girisYap() {
+    if (epostaYonetici.text.isEmpty || sifreYonetici.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Bilgileriniz Giriniz"),
+          // action: SnackBarAction(label: "Kapat", onPressed: () {}),
+          // margin: EdgeInsets.all(20),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.red,
+          showCloseIcon: true,
+        ),
+      );
+    } else {
+      if (sifreYonetici.text.length < 8) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Sifre Minimum 8 haneli olabilir."),
+            // action: SnackBarAction(label: "Kapat", onPressed: () {}),
+            // margin: EdgeInsets.all(20),
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: Colors.red,
+            showCloseIcon: true,
+          ),
+        );
+      } else {
+        context.go("/home");
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profil'),
-        titleTextStyle: TextStyle(color: Colors.white),
-        backgroundColor: Colors.deepPurpleAccent, // Profil ekranı için renk
-        leading: IconButton(
-          icon: const Icon(Icons.home), // Sol üstte "Home" ikonu
-          onPressed: () {
-            // Ana sayfaya yönlendir
-            GoRouter.of(context).go('/home'); // Ana sayfaya git
-          },
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Kullanıcı adı ve şifre girişi
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Kullanıcı Adı',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Şifre',
-                border: OutlineInputBorder(),
-              ),
-              obscureText: true, // Şifreyi gizler
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                // Giriş yapma işlemi burada yapılabilir
-                GoRouter.of(context).go('/home'); // Ana sayfaya yönlendirme
-              },
-              child: const Text('Giriş Yap'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple[50], // Düğme rengi
-              ),
-            ),
-            const SizedBox(height: 16),
-            // Yeni hesap oluştur butonu
-            ElevatedButton(
-              onPressed: () {
-                // Profil ekranına yönlendir
-                GoRouter.of(context)
-                    .go('/profile_screen'); // Profil ekranına yönlendirme
-              },
-              child: const Text('Yeni Hesap Oluştur'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple[200], // Düğme rengi
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+        appBar: AppBar(),
+        body: Center(
+            child: SizedBox(
+                width: 300,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextField(
+                        controller: epostaYonetici,
+                        decoration: InputDecoration(
+                          hintText: "E-Posta",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          prefixIcon: Icon(Icons.email),
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      TextFormField(
+                        obscureText: true,
+                        controller: sifreYonetici,
+                        decoration: InputDecoration(
+                          hintText: "Sifre",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          prefixIcon: Icon(Icons.lock),
+                        ),
+                      ),
+                      SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: girisYap,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: Size(double.infinity, 50),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: const Text("Giris Yap",
+                            style: TextStyle(fontSize: 16)),
+                      ),
+                      SizedBox(height: 12),
+                      ElevatedButton(
+                        onPressed: () {
+                          context.pushReplacement("/register");
+                        },
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: Size(double.infinity, 50),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: const Text("Kayit Ol",
+                            style: TextStyle(fontSize: 16)),
+                      ),
+                      SizedBox(height: 24),
+                    ]))));
   }
 }
