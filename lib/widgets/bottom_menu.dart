@@ -12,9 +12,7 @@ class BottomMenu extends StatelessWidget {
     return Container(
       height: 70,
       decoration: BoxDecoration(
-        color: Theme.of(context)
-            .colorScheme
-            .onPrimary, // Alt menünün arka plan rengi
+        color: Theme.of(context).colorScheme.onPrimary,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -34,7 +32,7 @@ class BottomMenu extends StatelessWidget {
             },
             icon: const Icon(
               CupertinoIcons.home,
-              color: Colors.deepPurpleAccent, // İkon rengi
+              color: Colors.white, // İkon rengi
             ),
           ),
           // Arama
@@ -42,11 +40,11 @@ class BottomMenu extends StatelessWidget {
           // Profil
           IconButton(
             onPressed: () {
-              context.go("/profile");
+              context.go("/login");
             },
             icon: const Icon(
               CupertinoIcons.person,
-              color: Colors.deepPurpleAccent,
+              color: Colors.white,
             ),
           ),
         ],

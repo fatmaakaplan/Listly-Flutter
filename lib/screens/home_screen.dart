@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import '../widgets/bottom_menu.dart';
 import '../core/themes.dart';
 import '../widgets/bottom_menu.dart';
@@ -26,28 +27,25 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text(
           'H O M E',
           style: TextStyle(
-            color: Colors.deepPurpleAccent,
+            color: Colors.white,
           ),
         ),
         centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        backgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
         elevation: 0,
         actions: [
           IconButton(
             icon: const Icon(CupertinoIcons.calendar_today),
-            color: Theme.of(context).colorScheme.onPrimary,
+            color: Theme.of(context).colorScheme.primary,
             onPressed: () {},
           ),
           IconButton(
             icon: Icon(
               _isDarkMode ? CupertinoIcons.sun_max : CupertinoIcons.moon_fill,
             ),
-            color: Colors.deepPurpleAccent,
+            color: Colors.white,
             onPressed: () {
-              setState(() {
-                _isDarkMode = !_isDarkMode;
-              });
-              widget.onThemeChange();
+              context.read<ThemeProvider>().toggleTheme();
             },
           ),
         ],
@@ -72,7 +70,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Theme.of(context).colorScheme.secondary,
               ),
             ),
-
             ListTile(
               leading: Icon(
                 CupertinoIcons.home,
@@ -86,9 +83,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               onTap: () => Navigator.pop(context),
             ),
-            // Arama Geçmişi menüsü
-
-            // Profil menüsü
             ListTile(
               leading: Icon(
                 CupertinoIcons.person,
@@ -100,9 +94,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
-              onTap: () => context.push("/profile"),
+              onTap: () => context.push("/login"),
             ),
-            // Ayarlar menüsü
             ListTile(
               leading: Icon(
                 CupertinoIcons.settings,
@@ -118,7 +111,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const Spacer(),
             const Divider(),
-            // Çıkış Yap menüsü
             ListTile(
               leading: Icon(
                 Icons.logout,
