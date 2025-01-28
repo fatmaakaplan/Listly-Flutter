@@ -35,7 +35,6 @@ class BottomMenu extends StatelessWidget {
               color: Colors.white, // İkon rengi
             ),
           ),
-          // Arama
 
           // Profil
           IconButton(
