@@ -21,7 +21,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        backgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
         elevation: 0,
       ),
       body: Container(
