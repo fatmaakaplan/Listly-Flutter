@@ -95,7 +95,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             const Divider(),
 
-            // Gizlilik Politikası
             ListTile(
               leading: Icon(Icons.privacy_tip,
                   color: Theme.of(context).colorScheme.primary),

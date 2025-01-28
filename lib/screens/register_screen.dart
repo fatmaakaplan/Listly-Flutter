@@ -15,6 +15,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      backgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
       body: Center(
         child: SizedBox(
           width: 300,
@@ -77,17 +78,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               SizedBox(height: 12),
               OutlinedButton(
-                onPressed: () {
-                  context.push("/login");
-                },
-                style: OutlinedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                  onPressed: () {
+                    context.push("/login");
+                  },
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: Size(double.infinity, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
-                ),
-                child: const Text("Giris Yap", style: TextStyle(fontSize: 16)),
-              ),
+                  child: const Text(
+                    "Giris Yap",
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ))
             ],
           ),
         ),
