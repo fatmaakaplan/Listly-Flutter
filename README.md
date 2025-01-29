@@ -1,4 +1,3 @@
-![login](https://github.com/user-attachments/assets/61b00775-6e47-4a8b-a9fa-efac11122150)
 # Flutter Projesi
 
   
