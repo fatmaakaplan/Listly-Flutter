@@ -131,7 +131,6 @@ lib/
 ![login](https://github.com/user-attachments/assets/29b5222b-3e25-4920-8fac-173fad6b0e93)
 ![navbar](https://github.com/user-attachments/assets/37cb2516-d18b-44ee-b79d-afa33238eb28)
 ![homescreen2](https://github.com/user-attachments/assets/c4e3caba-9bb4-46ae-bb23-8056537a6925)
-![Loading](https://github.com/user-attachments/assets/76d56e00-241b-44ca-ad72-babc7426e60d)
 ![Settings](https://github.com/user-attachments/assets/1dd7534e-f37b-47fb-bd0b-075c1db86f81)
 ![register](https://github.com/user-attachments/assets/cf9a0ffa-5dda-4275-9fed-d727e0670ec7)
 ![settings](https://github.com/user-attachments/assets/786c46f4-4f7a-461a-8109-907a6f110d31)
