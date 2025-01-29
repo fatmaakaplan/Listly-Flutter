@@ -135,7 +135,7 @@ lib/
 ![register](https://github.com/user-attachments/assets/cf9a0ffa-5dda-4275-9fed-d727e0670ec7)
 ![settings](https://github.com/user-attachments/assets/786c46f4-4f7a-461a-8109-907a6f110d31)
 
-
+[Uygulama Videosu](https://drive.google.com/drive/folders/1QvYF7r8FTooSriq7A8CQ1HeesHOdPrlW?usp=drive_link)
 
 ## Projeye Katkı Sağlama
 
