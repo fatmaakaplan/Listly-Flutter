@@ -120,6 +120,16 @@ lib/
 
   
 
+Uploading Kayıt 2025-01-28 234515.mp4…
+
+## Ekran Kaydı
+
+
+
+https://github.com/user-attachments/assets/7099532d-9c86-4570-9128-a0d85c0198e6
+
+
+
 ## Ekran Görüntüleri
 
 ![homes](https://github.com/user-attachments/assets/cbc7df50-bb90-4c8b-b15e-7ac756d5e4a3)
@@ -135,7 +145,7 @@ lib/
 ![register](https://github.com/user-attachments/assets/cf9a0ffa-5dda-4275-9fed-d727e0670ec7)
 ![settings](https://github.com/user-attachments/assets/786c46f4-4f7a-461a-8109-907a6f110d31)
 
-[Uygulama Videosu](https://drive.google.com/drive/folders/1QvYF7r8FTooSriq7A8CQ1HeesHOdPrlW?usp=drive_link)
+
 
 ## Projeye Katkı Sağlama
 
